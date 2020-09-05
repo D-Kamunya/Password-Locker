@@ -14,6 +14,12 @@ class TestAccount(unittest.TestCase):
     '''
     self.new_account=Account('kinc','Dennis','Kamunya','qwerty1234')
 
+  def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run.
+        '''
+        Account.accounts_list = []  
+
 
   def test_init(self):
     '''
@@ -41,7 +47,8 @@ class TestAccount(unittest.TestCase):
     account=Account.get_login_dets()
     self.assertEqual(self.new_account.user_name,account.user_name)
 
-    
+
+
 if __name__ == '__main__':
     unittest.main()           
 
