@@ -21,4 +21,8 @@ class Credential:
     '''
     Credential.credentials_list.append(self)
 
-
+  def delete_credential(self):
+    '''
+    Deletes credential obj from credentials list
+    '''
+    Credential.credentials_list.remove(self)  
