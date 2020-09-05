@@ -82,6 +82,19 @@ class TestCredential(unittest.TestCase):
       self.assertTrue(credential_exist)
 
 
+
+    def test_display_credentials(self):
+      '''
+      method that returns a list of all credentials saved
+      '''
+      self.new_credential.save_credential()
+      test_credential=Credential('instagram','moringa1234')
+      test_credential.save_credential()
+      credentials=Credential.display_credentials()
+
+      self.assertEqual(Credential.credentials_list,credentials)    
+
+
      
 
 if __name__ == '__main__':
