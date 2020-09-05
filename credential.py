@@ -12,3 +12,5 @@ class Credential:
     '''
     self.page_name=page_name
     self.pass_word=pass_word
+
+  credentials_list=[] #Empty credentials list
