@@ -23,6 +23,13 @@ class TestCredential(unittest.TestCase):
       self.assertEqual(self.new_credential.pass_word,'qwerty1234')
 
 
+    def test_save_credential(self):
+      '''
+      Test case to test if credential object is save intoo credentials_list
+      '''
+      self.new_credential.save_credential()
+      self.assertEqual(len(Credential.credentials_list),1)
+
 if __name__ == '__main__':
     unittest.main()           
     
