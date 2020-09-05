@@ -25,6 +25,13 @@ class Account:
     '''
     Account.accounts_list.append(self)
 
+  @classmethod
+  def get_login_dets(cls):
+    '''
+    get_login_dets method returns account details to use during login
+    '''
+    for account in cls.accounts_list:
+      return account 
 
     
 
