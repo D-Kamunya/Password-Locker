@@ -16,4 +16,9 @@ class Account:
     self.first_name=first_name
     self.last_name=last_name
     self.pass_word=pass_word
-      
+
+accounts_list=[] #Empty accounts list
+
+
+    
+
