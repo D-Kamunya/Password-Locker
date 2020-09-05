@@ -58,6 +58,21 @@ class TestCredential(unittest.TestCase):
       self.assertEqual(len(Credential.credentials_list),1)
 
 
+    def test_find_by_pagename(self):
+      '''
+      test to check if we can find a credential by page name and display information
+      '''
+      self.new_credential.save_credential()  
+      test_credential=Credential('instagram','moringa1234')
+      test_credential.save_credential()
+      found_credential=Credential.find_by_pagename('instagram')
+
+      self.assertEqual(test_credential.page_name,found_credential.page_name)
+
+
+
+
+
      
 
 if __name__ == '__main__':
