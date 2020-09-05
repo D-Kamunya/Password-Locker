@@ -31,7 +31,14 @@ class Account:
     get_login_dets method returns account details to use during login
     '''
     for account in cls.accounts_list:
-      return account 
+      return account
+
+  
+  def delete_account(self):
+    '''
+    delete_acount method deletes the saved account from the accounts_list
+    '''
+    Account.accounts_list.remove(self)     
 
     
 
