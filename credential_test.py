@@ -14,6 +14,12 @@ class TestCredential(unittest.TestCase):
       '''
       self.new_credential=Credential('twitter','qwerty1234')
 
+    def tearDown(self):
+      '''
+      tearDown method that does clean up after each test case has run.
+      '''
+      Credential.credentials_list = []
+
 
     def test_init(self):
       '''
