@@ -55,4 +55,11 @@ class Credential:
       if credential.page_name==pagename:
         return True
 
-    return False           
+    return False
+
+  @classmethod
+  def display_credentials(cls):
+    '''
+    method that returns the credentials list
+    '''
+    return cls.credentials_list            
