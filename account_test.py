@@ -33,6 +33,15 @@ class TestAccount(unittest.TestCase):
     self.new_account.save_account()
     self.assertEqual(len(Account.accounts_list),1)    
 
+  def test_get_login_dets(self):
+    '''
+    method that returns accounts info to use during test_get_login_dets
+    '''
+    self.new_account.save_account()
+    account=Account.get_login_dets()
+    self.assertEqual(self.new_account.user_name,account.user_name)
+
+    
 if __name__ == '__main__':
     unittest.main()           
 
