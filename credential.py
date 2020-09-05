@@ -26,3 +26,17 @@ class Credential:
     Deletes credential obj from credentials list
     '''
     Credential.credentials_list.remove(self)  
+
+  @classmethod
+  def find_by_pagename(cls,pagename):
+    '''
+    Method that takes in a page name and returns a credential that matches that page name.
+
+    Args:
+        pagename: Page name to search for
+    Returns :
+        Credential that matches the pag ename.
+    '''
+    for credential in cls.credentials_list:
+      if credential.page_name==pagename:
+        return credential 
