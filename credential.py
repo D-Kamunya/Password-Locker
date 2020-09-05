@@ -39,4 +39,20 @@ class Credential:
     '''
     for credential in cls.credentials_list:
       if credential.page_name==pagename:
-        return credential 
+        return credential
+
+
+  @classmethod
+  def credential_exists(cls,pagename):
+    '''
+    Method that checks if a credential exists from the credential list.
+    Args:
+        pagename: Page name to search if it exists
+    Returns :
+        Boolean: True or false depending if the credential exists
+    '''
+    for credential in cls.credentials_list:
+      if credential.page_name==pagename:
+        return True
+
+    return False           
