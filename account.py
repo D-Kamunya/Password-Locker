@@ -17,7 +17,13 @@ class Account:
     self.last_name=last_name
     self.pass_word=pass_word
 
-accounts_list=[] #Empty accounts list
+  accounts_list=[] #Empty accounts list
+
+  def save_account(self):
+    '''
+    save_account method saves account objects into accounts_list
+    '''
+    Account.accounts_list.append(self)
 
 
     
