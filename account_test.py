@@ -8,9 +8,13 @@ class TestAccount(unittest.TestCase):
   Args:
       unittest.TestCase: TestCase class that helps in creating test cases
   '''
-
-
+  def setUp(self):
+    '''
+    Set up method to run before each test cases.
+    '''
+    self.new_account=Account('kinc','Dennis','Kamunya','qwerty1234')
 
 if __name__ == '__main__':
     unittest.main()           
 
+    
