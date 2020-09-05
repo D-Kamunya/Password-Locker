@@ -20,3 +20,5 @@ class Credential:
     Saves credential object in the credentials list
     '''
     Credential.credentials_list.append(self)
+
+
