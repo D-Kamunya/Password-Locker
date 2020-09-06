@@ -39,13 +39,12 @@ class TestAccount(unittest.TestCase):
     self.new_account.save_account()
     self.assertEqual(len(Account.accounts_list),1)    
 
-  def test_get_login_dets(self):
+  def test_auth_user(self):
     '''
-    method that returns accounts info to use during test_get_login_dets
+    method that test if login works fine
     '''
     self.new_account.save_account()
-    account=Account.get_login_dets()
-    self.assertEqual(self.new_account.user_name,account.user_name)
+    self.assertTrue( self.new_account.auth_user(self.new_account.user_name,self.new_account.pass_word))
 
 
   def test_delete_account(self):

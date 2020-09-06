@@ -26,12 +26,15 @@ class Account:
     Account.accounts_list.append(self)
 
   @classmethod
-  def get_login_dets(cls):
+  def auth_user(cls,username,password):
     '''
-    get_login_dets method returns account details to use during login
+    auth_user return true if login details are correct
     '''
     for account in cls.accounts_list:
-      return account
+      if account.user_name==username and account.pass_word==password:
+        return True
+      else: 
+        return False  
 
   
   def delete_account(self):
