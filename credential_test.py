@@ -12,7 +12,7 @@ class TestCredential(unittest.TestCase):
       '''
       Set up method to run before each test cases.
       '''
-      self.new_credential=Credential('twitter','qwerty1234')
+      self.new_credential=Credential('twitter','dmk','qwerty1234')
 
     def tearDown(self):
       '''
@@ -26,6 +26,7 @@ class TestCredential(unittest.TestCase):
       Test case to test if object was initialized properly
       '''
       self.assertEqual(self.new_credential.page_name,'twitter')
+      self.assertEqual(self.new_credential.user_name,'dmk')
       self.assertEqual(self.new_credential.pass_word,'qwerty1234')
 
 
@@ -42,7 +43,7 @@ class TestCredential(unittest.TestCase):
       Test case to test if we can save multiple credentials_list
       ''' 
       self.new_credential.save_credential()
-      test_credential=Credential('instagram','moringa1234')
+      test_credential=Credential('instagram','dmkk','moringa1234')
       test_credential.save_credential()
       self.assertEqual(len(Credential.credentials_list),2)
 
@@ -51,7 +52,7 @@ class TestCredential(unittest.TestCase):
       Test case to test if we can remove a credential from our credentials list
       '''
       self.new_credential.save_credential()
-      test_credential=Credential('instagram','moringa1234')
+      test_credential=Credential('instagram','dmkk','moringa1234')
       test_credential.save_credential()
       self.new_credential.delete_credential()
 
@@ -63,7 +64,7 @@ class TestCredential(unittest.TestCase):
       test to check if we can find a credential by page name and display information
       '''
       self.new_credential.save_credential()  
-      test_credential=Credential('instagram','moringa1234')
+      test_credential=Credential('instagram','dmkk','moringa1234')
       test_credential.save_credential()
       found_credential=Credential.find_by_pagename('instagram')
 
@@ -75,7 +76,7 @@ class TestCredential(unittest.TestCase):
       Test to check if we can return a Boolean  if we cannot find the credential.
       '''
       self.new_credential.save_credential()
-      test_credential=Credential('instagram','moringa1234')
+      test_credential=Credential('instagram','dmkk','moringa1234')
       test_credential.save_credential()
       credential_exist=Credential.credential_exists('instagram')
 
@@ -88,7 +89,7 @@ class TestCredential(unittest.TestCase):
       method that returns a list of all credentials saved
       '''
       self.new_credential.save_credential()
-      test_credential=Credential('instagram','moringa1234')
+      test_credential=Credential('instagram','dmkk','moringa1234')
       test_credential.save_credential()
       credentials=Credential.display_credentials()
 

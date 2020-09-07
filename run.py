@@ -38,11 +38,11 @@ def auth_user(username,password):
 
 #Functions that implement the behaviours in credential class.
 
-def create_credential(page,password):
+def create_credential(page,username,password):
   '''
   Function to create credentials
   '''
-  new_credential=Credential(page,password)
+  new_credential=Credential(page,username,password)
   return new_credential
 
 
