@@ -11,13 +11,14 @@
 Password Locker V1.0
 
 ## Description
-A simple python program which runs on the terminal. The app, securely stores your user's account credentials for various pages and also generates passwords for a user's new page account using the inbuilt random and string libraries.
+A simple python program which runs on the terminal. The app, securely stores your user's account credentials for various pages and also generates passwords for a user's new page account using the inbuilt random and string libraries.With the help of python pickles library,our application is also able to save accounts and credentials data so as to use them even after exiting the application  
 
 ## Features
 * The program utilizes two classes:- Account/User and Credential.
 * The program authenticates accounts to see their credentials.
 * Contains docstrings to document methods and functions.
 * Contains a test class for all the classes testing each individual method in a class.
+* Program saves data on exiting to use during next launch
 
 ## User Stories
 * A user can create a password locker account with my details, a login username and password.
@@ -33,6 +34,7 @@ A simple python program which runs on the terminal. The app, securely stores you
     * pyperclip
     * random (inbuilt)
     * time (inbuilt)
+    * pickles (inbuilt)
     * termcolor
     * unittest
 
