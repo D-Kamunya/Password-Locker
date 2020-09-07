@@ -163,6 +163,11 @@ def main():
         else:
           cprint('\n\t\tPLEASE USE THE GIVEN SHORT CODES','red',attrs=['bold'])  
       elif s_code=='xx':
+        cprint(f"""\n\t\tTHANK YOU FOR USING PASSWORD LOCKER
+        \t\tBye...
+        \t\t\t\t\tClosing App >>>>>
+        ""","red",attrs=['bold'])
+        time.sleep(1.5)
         logged=False
         break
       else:
@@ -179,7 +184,8 @@ def main():
           'dc' >> Display all credentials saved
           'fc' >> Find credential saved by page name
           'dl' >> Delete page credential
-          'ex' >> Log out
+          'lgo' >> Log out
+          'ex' >> Close App
           ""","blue")
       app_code=input(colored('\tWhat would you like to do? >> ','cyan')).lower()
 
@@ -258,13 +264,21 @@ def main():
         else:
           cprint(f'\n\t\t{del_page.upper()} DOES NOT EXISTS','red',attrs=['bold'])
 
-      elif app_code=='ex':
+      elif app_code=='lgo':
         cprint(f"""\n\t\t{sign_name.upper()}, THANK YOU FOR USING PASSWORD LOCKER
         \t\tBye...
         \t\t\t\t\tLogin out >>>>>
         ""","green",attrs=['bold'])
         time.sleep(1.5)
         login=False
+      elif app_code=='ex':
+        cprint(f"""\n\t\t{sign_name.upper()}, THANK YOU FOR USING PASSWORD LOCKER
+        \t\tBye...
+        \t\t\t\t\tClosing App >>>>>
+        ""","red",attrs=['bold'])
+        time.sleep(1.5)
+        login=False
+        logged=False  
       else:
         cprint('\n\t\tPLEASE USE THE GIVEN SHORT CODES','red',attrs=['bold'])                         
 
