@@ -82,7 +82,33 @@ def generate_password():
   '''
   Function that generte a random password
   '''
-  return Credential.generate_password()  
+  return Credential.generate_password() 
+
+
+def main():
+  def display_title():
+    '''
+    Function to display app title bar
+    '''
+    print("""
+          \n\t\t\t\t**********************************************
+          \t\t**************************************************************************
+          \t*******************************************************************************************
+          \n
+          \t\t\t\t        _   |~  _
+          \t\t\t\t       [_]--'--[_]
+          \t\t\t\t       |'|""`""|'|
+          \t\t\t\t       | | /^\ | |
+          \t\t\t\t       |_|_|I|_|_|
+          \n\t\t\t\t***  GREETINGS USER, WELCOME TO PASSWORD LOCKER  ***
+          \n`\t\t\t******************************************************************
+          """)
+
+  display_title()
+if __name__ == '__main__':
+
+    main()    
+
 
 
 
