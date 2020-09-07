@@ -83,8 +83,8 @@ class Credential:
     return password
 
   def copy_cred_password(pagename):
-        '''
-        method that copies credential password by pagename
-        '''
-        copy_cred=Credential.find_by_pagename(pagename)
-        pyperclip.copy(copy_cred.pass_word)    
+    '''
+    method that copies credential password by pagename
+    '''
+    copy_cred=Credential.find_by_pagename(pagename)
+    pyperclip.copy(copy_cred.pass_word)    

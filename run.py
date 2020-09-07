@@ -73,6 +73,12 @@ def find_cred_by_pagename(pagename):
   return Credential.find_by_pagename(pagename)
 
 
+def copy_cred_pass(pagename):
+    '''
+    Function to copy credential password            
+    '''
+    return Credential.copy_cred_password(pagename)
+
 def check_credential_exists(pagename):
   '''
   Function that check if a credential exists with that pagename and return a Boolean
@@ -193,6 +199,7 @@ def main():
           'cc' >> Create new page credentials
           'dc' >> Display all credentials saved
           'fc' >> Find credential saved by page name
+          'cp' >> Copy pagename credential password to clipboard
           'dl' >> Delete page credential
           'lgo' >> Log out
           'ex' >> Close App
@@ -264,6 +271,15 @@ def main():
         else:
           cprint(f'\n\t\t{search_page.upper()} DOES NOT EXISTS','red',attrs=['bold'])  
 
+      elif app_code=='cp':
+        search_page=input(colored('\n\tEnter page name to copy password to clipboard >> ','cyan')).lower()
+        print("\n\t\tSearching ...")
+        time.sleep(1.5)
+        if check_credential_exists(search_page):
+          copy_cred_pass(search_page)
+          cprint("\n\t\t"+search_page.upper()+", PASSWORD COPIED TO CLIPBOARD","green",attrs=['bold'])
+        else:
+          cprint(f'\n\t\t{search_page.upper()} DOES NOT EXISTS','red',attrs=['bold']) 
       elif app_code=='dl':
         del_page=input(colored('\n\tEnter page name you want to delete >> ','cyan')).lower()
         print("\n\t\tDeleting ...")
