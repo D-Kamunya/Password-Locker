@@ -1,8 +1,8 @@
 # PASSWORD LOCKER
 ### 04.09.2020
 ####  A Python program helps you store your credentials for multiple account pages and also generate new credentials for new accounts.
-![alt text](images/app1.jpg)
-![alt text](images/app2.jpg)
+![alt text](imgs/app1.png)
+![alt text](imgs/app2.png)
 
 ## Author
 [Dennis Kamunya](https://github.com/D-Kamunya)
