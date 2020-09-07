@@ -100,10 +100,9 @@ class TestCredential(unittest.TestCase):
       method that test if credential obj can generate random password
       '''
       self.new_credential.save_credential()
-      generate_pass=self.new_credential.generate_password()
-      generate_pass1=self.new_credential.generate_password()
+      generate_pass=self.new_credential.generate_password(10)
 
-      self.assertTrue(generate_pass!=generate_pass1)     
+      self.assertEqual(len(generate_pass),10)     
 
 
      

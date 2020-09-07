@@ -72,11 +72,11 @@ class Credential:
   
   # get random string password with letters, digits, and symbols
   @classmethod
-  def generate_password(cls):
+  def generate_password(cls,length):
     """
     this method uses the string method to generate a password of random digits and letters
     the length of the password is determined by the length passed in the function's parameter 
     """
     password_characters = string.ascii_letters + string.digits + string.punctuation
-    password= ''.join(random.choice(password_characters) for i in range(10))
+    password= ''.join(random.choice(password_characters) for i in range(length))
     return password

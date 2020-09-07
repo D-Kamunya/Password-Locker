@@ -87,11 +87,11 @@ def display_credentials():
   return Credential.display_credentials()
 
 
-def generate_password():
+def generate_password(length):
   '''
   Function that generte a random password
   '''
-  return Credential.generate_password() 
+  return Credential.generate_password(length) 
 
 
 def main():
@@ -220,7 +220,8 @@ def main():
         gen_pass_code=input(colored('\tWould you like to generate a random password? Y/N >> ','cyan')).upper()
         pass_word=''
         if gen_pass_code=='Y':
-          pass_word=generate_password()
+          pass_len=int(input(colored('\tHow long would you like your password? Provide numbers only >> ','cyan')))
+          pass_word=generate_password(pass_len)
         else:    
           pass_word=input(colored('\n\tEnter page password >> ','cyan'))
         print("\n\t\tCreating and Saving credentials ...")
