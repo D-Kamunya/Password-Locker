@@ -92,7 +92,8 @@ class TestCredential(unittest.TestCase):
       test_credential.save_credential()
       credentials=Credential.display_credentials()
 
-      self.assertEqual(Credential.credentials_list,credentials)    
+      self.assertEqual(Credential.credentials_list,credentials) 
+    
 
 
      
