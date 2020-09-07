@@ -4,6 +4,7 @@ from credential import Credential
 from termcolor import colored,cprint
 import os
 import time
+import pickle
 
 
 #Functions that implement the behaviours in account class.
@@ -106,6 +107,46 @@ def main():
   sign_name='' #Name of user currently logged in
   logged=True
 
+  def load_pickles():
+    try:
+      file_object = open('accounts.pydata', 'rb')
+      Account.accounts_list = pickle.load(file_object)
+      file_object.close()
+      print("\nLOADED PICKLES ACCOUNTS")
+    except:
+      print("\nCLDN'T LOAD PICKLES ACCOUNTS")
+      Account.accounts_list = []
+
+    try:
+      file_objectt = open('credentials.pydata', 'rb')
+      Credential.credentials_list = pickle.load(file_objectt)
+      file_object.close()
+      print("\nLOADED PICKLES CREDENTIALS")
+    except:
+      print("\nCLDN'T LOAD PICKLES CREDENTIALS")
+      Credential.credentials_list = []  
+
+
+  def pickle_save():
+    try:
+      file_object = open('accounts.pydata', 'wb')
+      pickle.dump(Account.accounts_list,file_object)
+      file_object.close()
+      print("\nSAVED ACCOUNTS TO PICKLE")
+     
+    except Exception as e:
+        print(e)
+        print("\nCOULDN'T ACCOUNTS SAVE  TO PICKLES.")
+
+    try:
+      file_objectt = open('credentials.pydata', 'wb')
+      pickle.dump(display_credentials(),file_objectt)
+      file_objectt.close()
+      print("\nSAVED CREDENTIALS TO PICKLE")
+     
+    except Exception as e:
+        print(e)
+        print("\nCOULDN'T CREDENTIALS SAVE  TO PICKLES.")    
   def display_title():
     os.system('clear')
     '''
@@ -126,7 +167,7 @@ def main():
           ""","magenta")
   while logged:
     display_title()
-
+    load_pickles()
 
     while login==False:
       cprint("""
@@ -183,6 +224,7 @@ def main():
         \t\tBye...
         \t\t\t\t\tClosing App >>>>>
         ""","red",attrs=['bold'])
+        pickle_save()
         time.sleep(1.5)
         logged=False
         break
@@ -303,6 +345,7 @@ def main():
         \t\tBye...
         \t\t\t\t\tClosing App >>>>>
         ""","red",attrs=['bold'])
+        pickle_save()
         time.sleep(1.5)
         login=False
         logged=False  
