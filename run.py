@@ -91,6 +91,7 @@ def generate_password():
 def main():
 
   login=False #Set initial login value to false 
+  sign_name='' #Name of user currently logged in
 
   def display_title():
     os.system('clear')
@@ -120,41 +121,41 @@ def main():
           'ln' - Login 
           'xx' - Close app
           ""","blue")
-    cprint("\tWhat would you like to do?",'cyan')
-    s_code = input().lower()
+    s_code = input(colored('\tWhat would you like to do? >> ','cyan')).lower()
     if s_code=='ln':
-      cprint('\tDo you have an account? Y/N','cyan')
-      acc_code=input().upper()
+      acc_code=input(colored('\tDo you have an account? Y/N >> ','cyan')).upper()
       if acc_code=='Y':
         cprint('\tEnter your username and password  to login >>>\n','blue')
-        login_user_name=input('\tEnter username >> ')
-        login_password=input('\tEnter password >> ')
+        login_user_name=input(colored('\tEnter username >> ','cyan'))
+        login_password=input(colored('\tEnter password >> ','cyan'))
         print("\n\t\tSigning in...")
         time.sleep(1.5)
         if auth_user(login_user_name,login_password):
-          cprint('\n\t\tLOGIN SUCCESSFUL','green',attrs=['bold'])  
+          cprint('\n\t\tLOGIN SUCCESSFUL','green',attrs=['bold'])
+          sign_name=login_user_name  
           login=True
         else:
           cprint('\n\t\tSORRY COULD NOT VERIFY USER','red',attrs=['bold'])  
 
       elif acc_code=='N':
         cprint('\tEnter your username,firstname,lastname and password  to register account >>>\n','blue')
-        reg_user_name=input('\tEnter username >> ')
-        reg_f_name=input('\tEnter firstname >> ')
-        reg_l_name=input('\tEnter lastname >> ')
-        reg_password=input('\tEnter password >> ')
+        reg_user_name=input(colored('\tEnter username >> ','cyan'))
+        reg_f_name=input(colored('\tEnter firstname >> ','cyan'))
+        reg_l_name=input(colored('\tEnter lastname >> ','cyan'))
+        reg_password=input(colored('\tEnter password >> ','cyan'))
         print("\n\t\tRegistering ...")
         time.sleep(1.5)
         new_acc=create_account(reg_user_name,reg_f_name,reg_l_name,reg_password)
         save_account(new_acc)
         cprint("\n\t\tCONGRATULATIONS, YOUR ACCOUNT HAS BEEN CREATED","green",attrs=['bold'])
         cprint("\n\tSign into your new account","blue")
-        sign_username=input('\n\tEnter username >> ')
-        sign_password=input('\n\tEnter password >> ')
+        sign_username=input(colored('\n\tEnter username >> ','cyan'))
+        sign_password=input(colored('\n\tEnter password >> ','cyan'))
         print("\n\t\tSigning in ...")
         time.sleep(1.5)
         if auth_user(sign_username,sign_password):
           cprint("\n\t\tLOGIN SUCCESSFUL","green",attrs=['bold'])
+          sign_name=sign_username
           login=True
         else :
           cprint('\n\t\tSORRY COULD NOT VERIFY USER','red',attrs=['bold'])  
@@ -167,7 +168,20 @@ def main():
 
   
   while  login==True:
-    print('LOGGED IN')
+    cprint(f"""
+      {sign_name.upper()}, WELCOME TO YOUR PASSWORD LOCKER:
+      Use the following commands to navigate the application:
+        'sc' >> Save existing page credentials
+        'cc' >> Create new page credentials
+        'dc' >> Display all credentials saved
+        'fc' >> Find credential saved by page name
+        'dl' >> Delete page credential
+        'ex' >> Log out
+        ""","blue")
+    app_code=input(colored('\tWhat would you like to do? >> ','cyan')).lower()
+
+    if app_code=='sc':
+      pass
 if __name__ == '__main__':
 
     main()    
