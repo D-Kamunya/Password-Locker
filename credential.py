@@ -1,5 +1,6 @@
 import random
 import string
+import pyperclip
 
 class Credential:
   """
@@ -80,3 +81,10 @@ class Credential:
     password_characters = string.ascii_letters + string.digits + string.punctuation
     password= ''.join(random.choice(password_characters) for i in range(length))
     return password
+
+  def copy_cred_password(pagename):
+        '''
+        method that copies credential password by pagename
+        '''
+        copy_cred=Credential.find_by_pagename(pagename)
+        pyperclip.copy(copy_cred.pass_word)    

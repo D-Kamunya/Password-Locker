@@ -1,4 +1,5 @@
 import unittest
+import pyperclip
 from credential import Credential
 
 class TestCredential(unittest.TestCase):
@@ -102,7 +103,19 @@ class TestCredential(unittest.TestCase):
       self.new_credential.save_credential()
       generate_pass=self.new_credential.generate_password(10)
 
-      self.assertEqual(len(generate_pass),10)     
+      self.assertEqual(len(generate_pass),10)    
+
+
+    
+    def test_copy_email(self):
+      '''
+      Test to confirm that we are copying the password from a found pagename
+      '''
+
+      self.new_credential.save_credential()
+      Credential.copy_cred_password('twitter')
+
+      self.assertEqual(self.new_credential.pass_word,pyperclip.paste())       
 
 
      
