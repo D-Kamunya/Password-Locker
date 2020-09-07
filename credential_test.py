@@ -93,7 +93,16 @@ class TestCredential(unittest.TestCase):
       credentials=Credential.display_credentials()
 
       self.assertEqual(Credential.credentials_list,credentials) 
-    
+
+    def test_generate_password(self):
+      '''
+      method that test if credential obj can generate random password
+      '''
+      self.new_credential.save_credential()
+      generate_pass=self.new_credential.generate_password()
+      generate_pass1=self.new_credential.generate_password()
+
+      self.assertTrue(generate_pass!=generate_pass1)     
 
 
      
