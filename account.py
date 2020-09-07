@@ -33,8 +33,8 @@ class Account:
     for account in cls.accounts_list:
       if account.user_name==username and account.pass_word==password:
         return True
-      else: 
-        return False 
+      
+    return False 
 
   @classmethod
   def account_exists(cls,username):
