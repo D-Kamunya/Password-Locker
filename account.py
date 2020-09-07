@@ -34,7 +34,22 @@ class Account:
       if account.user_name==username and account.pass_word==password:
         return True
       else: 
-        return False  
+        return False 
+
+  @classmethod
+  def account_exists(cls,username):
+    '''
+    Method that checks if an account already exists.
+    Args:
+        username: username to search if account already exists
+    Returns :
+        Boolean: True or false depending if the account exists
+    '''
+    for account in cls.accounts_list:
+      if account.user_name==username:
+        return True
+
+    return False       
 
   
   def delete_account(self):

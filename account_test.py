@@ -47,6 +47,13 @@ class TestAccount(unittest.TestCase):
     self.assertTrue( self.new_account.auth_user(self.new_account.user_name,self.new_account.pass_word))
 
 
+  def test_account_exists(self):
+    '''
+    Test case to test if an account already exists
+    '''
+    self.new_account.save_account()
+    self.assertTrue(Account.account_exists(self.new_account.user_name))
+
   def test_delete_account(self):
     '''
     test_delete_account to test if we can remove an account from our accounts list

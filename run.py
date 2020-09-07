@@ -29,6 +29,12 @@ def delete_account(account):
   '''
   account.delete_account()
 
+def check_account_exists(username):
+  '''
+  Function that check if an account with that username already exists and return a Boolean
+  '''
+  return Account.account_exists(username)  
+
 
 def auth_user(username,password):
   '''
@@ -144,22 +150,26 @@ def main():
           reg_f_name=input(colored('\tEnter firstname >> ','cyan'))
           reg_l_name=input(colored('\tEnter lastname >> ','cyan'))
           reg_password=input(colored('\tEnter password >> ','cyan'))
-          new_acc=create_account(reg_user_name,reg_f_name,reg_l_name,reg_password)
-          save_account(new_acc)
           print("\n\t\tRegistering ...")
           time.sleep(1.5)
-          cprint("\n\t\tCONGRATULATIONS, YOUR ACCOUNT HAS BEEN CREATED","green",attrs=['bold'])
-          cprint("\n\tSign into your new account","blue")
-          sign_username=input(colored('\n\tEnter username >> ','cyan'))
-          sign_password=input(colored('\n\tEnter password >> ','cyan'))
-          print("\n\t\tSigning in ...")
-          time.sleep(1.5)
-          if auth_user(sign_username,sign_password):
-            cprint("\n\t\tLOGIN SUCCESSFUL","green",attrs=['bold'])
-            sign_name=sign_username
-            login=True
-          else :
-            cprint('\n\t\tSORRY COULD NOT VERIFY USER','red',attrs=['bold'])  
+          if check_account_exists(reg_user_name):
+            cprint(f"\n\t\tACCOUNT WITH, {reg_user_name.upper()} USERNAME ALREADY EXISTS","red",attrs=['bold'])
+          else:  
+            new_acc=create_account(reg_user_name,reg_f_name,reg_l_name,reg_password)
+            save_account(new_acc)
+          
+            cprint("\n\t\tCONGRATULATIONS, YOUR ACCOUNT HAS BEEN CREATED","green",attrs=['bold'])
+            cprint("\n\tSign into your new account","blue")
+            sign_username=input(colored('\n\tEnter username >> ','cyan'))
+            sign_password=input(colored('\n\tEnter password >> ','cyan'))
+            print("\n\t\tSigning in ...")
+            time.sleep(1.5)
+            if auth_user(sign_username,sign_password):
+              cprint("\n\t\tLOGIN SUCCESSFUL","green",attrs=['bold'])
+              sign_name=sign_username
+              login=True
+            else :
+              cprint('\n\t\tSORRY COULD NOT VERIFY USER','red',attrs=['bold'])  
         else:
           cprint('\n\t\tPLEASE USE THE GIVEN SHORT CODES','red',attrs=['bold'])  
       elif s_code=='xx':
