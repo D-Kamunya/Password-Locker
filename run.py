@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.8
 from account import   Account
 from credential import Credential
+from termcolor import colored,cprint
 
 
 #Functions that implement the behaviours in account class.
@@ -90,7 +91,7 @@ def main():
     '''
     Function to display app title bar
     '''
-    print("""
+    cprint("""
           \n\t\t\t\t**********************************************
           \t\t**************************************************************************
           \t*******************************************************************************************
@@ -102,7 +103,7 @@ def main():
           \t\t\t\t       |_|_|I|_|_|
           \n\t\t\t\t***  GREETINGS USER, WELCOME TO PASSWORD LOCKER  ***
           \n`\t\t\t******************************************************************
-          """)
+          ""","blue")
 
   display_title()
 if __name__ == '__main__':
