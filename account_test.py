@@ -37,7 +37,16 @@ class TestAccount(unittest.TestCase):
     the accounts list
     '''
     self.new_account.save_account()
-    self.assertEqual(len(Account.accounts_list),1)    
+    self.assertEqual(len(Account.accounts_list),1)
+
+  def test_save_mult_accounts(self):
+      '''
+      Test case to test if we can save multiple accounts in accounts_list
+      ''' 
+      self.new_account.save_account()
+      test_acc=Account('denno','Kamunya','Muriithi','moringa#23')
+      test_acc.save_account()
+      self.assertEqual(len(Account.accounts_list),2)      
 
   def test_auth_user(self):
     '''
